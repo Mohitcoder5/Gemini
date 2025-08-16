@@ -1,0 +1,139 @@
+/* Sidebar container */
+.sidebar {
+    min-height: 100vh;
+    width: 20%;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #f0f4f9;
+    padding: 1.5rem 1rem;
+    transition: width 0.5s ease, all 0.3s ease-in-out;
+}
+
+/* Apply smooth transitions to all children */
+.sidebar * {
+    transition: all 0.3s ease-in-out;
+}
+
+/* Logo + icons */
+.sidebar img {
+    width: 1.25rem; /* 20px */
+}
+
+/* Menu button */
+.sidebar .menu {
+    width: 2.5rem; /* 40px */
+    display: block;
+    padding: 0.5rem;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.sidebar .menu:hover {
+    background-color: #e2e6eb;
+}
+
+/* New Chat button */
+.sidebar .new-chat {
+    margin-top: 3rem;
+    height: 2.5rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0 0.75rem;
+    background-color: #dde3ea;
+    border-radius: 50px;
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.2rem;
+    color: #444746;
+    cursor: pointer;
+}
+
+.sidebar .new-chat:hover {
+    background-color: #cfd5db;
+    transform: scale(1.02);
+}
+
+.sidebar .new-chat p {
+    white-space: nowrap;
+    animation: fadeIn 1s;
+}
+
+.sidebar .new-chat img {
+    width: 1rem; /* 16px */
+    filter: brightness(0);
+}
+
+/* Recent chats section */
+.sidebar .recent {
+    display: flex;
+    flex-direction: column;
+    animation: fadeIn 1.5s;
+}
+
+.sidebar .recent-title {
+    margin: 2rem 0 1.25rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.sidebar .recent-entry {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.625rem;
+    padding: 0.625rem;
+    padding-right: 2.5rem;
+    border-radius: 50px;
+    color: #282828;
+    cursor: pointer;
+}
+
+.sidebar .recent-entry:hover {
+    background-color: #e2e6eb;
+}
+
+/* Bottom section */
+.sidebar .bottom {
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar .bottom-item {
+    padding-right: 0.625rem;
+    cursor: pointer;
+}
+
+.sidebar .bottom-item p {
+    animation: fadeIn 1s;
+}
+
+/* FadeIn Animation */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Accessibility focus states */
+.sidebar .menu:focus-visible,
+.sidebar .recent-entry:focus-visible,
+.sidebar .bottom-item:focus-visible {
+    outline: 2px solid #0078ff;
+    outline-offset: 2px;
+}
+
+/* Mobile responsive: collapsible sidebar */
+@media (max-width: 600px) {
+    .sidebar {
+        width: 3.75rem; /* 60px */
+        min-width: 3.75rem;
+        padding: 1rem 0.5rem;
+    }
+
+    .sidebar .new-chat p,
+    .sidebar .recent-title,
+    .sidebar .recent-entry p,
+    .sidebar .bottom-item p {
+        display: none; /* hide text, keep icons */
+    }
+}
